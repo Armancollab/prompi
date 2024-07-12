@@ -95,7 +95,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            #{tag}
+            {tag}
           </motion.span>
         ))}
       </div>
