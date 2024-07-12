@@ -2,10 +2,9 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-
 import Form from "@components/Form";
 
-const UpdatePrompt = () => {
+const UpdatePromptContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
@@ -53,14 +52,20 @@ const UpdatePrompt = () => {
   };
 
   return (
+    <Form
+      type="Edit"
+      post={post}
+      setPost={setPost}
+      submitting={submitting}
+      handleSubmit={updatePrompt}
+    />
+  );
+};
+
+const UpdatePrompt = () => {
+  return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Form
-        type="Edit"
-        post={post}
-        setPost={setPost}
-        submitting={submitting}
-        handleSubmit={updatePrompt}
-      />
+      <UpdatePromptContent />
     </Suspense>
   );
 };
